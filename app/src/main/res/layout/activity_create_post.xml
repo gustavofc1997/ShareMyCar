@@ -1,18 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:padding="@dimen/padding_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/txt_origin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:drawableLeft="@drawable/ic_add_location_black"
+            android:drawableStart="@drawable/ic_add_location_black"
+            android:focusable="false"
+            android:hint="@string/title_choose_from"
+            android:inputType="text"
+            android:textSize="@dimen/size_normal_text"
+            app:fontFamily="@font/ubuntu_light" />
+
+        <EditText
+            android:id="@+id/txt_destination"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:drawableEnd="@drawable/ic_add_location_black"
+            android:drawableRight="@drawable/ic_add_location_black"
+            android:focusable="false"
+            android:hint="@string/title_choose_to"
+            android:inputType="text"
+            android:textSize="@dimen/size_normal_text"
+            app:fontFamily="@font/ubuntu_light" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_medium">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/lab_seats_available"
+                android:textSize="@dimen/size_normal_text"
+                app:fontFamily="@font/ubuntu_light" />
+
+
+            <com.gustavoforero.sharemycar.views.QuantityView
+                android:id="@+id/quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padding_normal"
+                android:layout_marginStart="@dimen/padding_normal"
+                app:qv_maxQuantity="10"
+                app:qv_quantityTextColor="@android:color/black" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/panel_date"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_normal"
+        android:background="@drawable/bg_date_selected"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_medium"
+        android:weightSum="1">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.65"
+            android:text="@string/lab_select_date"
+            android:textSize="@dimen/size_normal_text"
+            android:textStyle="bold"
+            app:fontFamily="@font/ubuntu_light" />
+
+        <TextView
+            android:id="@+id/lab_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.35"
+            android:gravity="end"
+            android:text="02/09/18"
+            android:textSize="@dimen/size_normal_text"
+            android:textStyle="bold"
+            app:fontFamily="@font/ubuntu_light" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/panel_hour"
+        android:layout_width="match_parent"
+        android:background="@drawable/bg_date_selected"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_medium"
+        android:weightSum="1">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.65"
+            android:text="@string/lab_select_hour"
+            android:textSize="@dimen/size_normal_text"
+            android:textStyle="bold"
+            app:fontFamily="@font/ubuntu_light" />
+
+        <TextView
+            android:id="@+id/lab_hour"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.35"
+            android:gravity="end"
+            android:text="12:30 am"
+            android:textSize="@dimen/size_normal_text"
+            android:textStyle="bold"
+            app:fontFamily="@font/ubuntu_light" />
+    </LinearLayout>
+</LinearLayout>

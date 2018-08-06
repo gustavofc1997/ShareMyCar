@@ -9,10 +9,15 @@ android {
     defaultConfig {
         applicationId "com.gustavoforero.sharemycar"
         minSdkVersion 15
+        multiDexEnabled true
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -22,6 +27,8 @@ android {
 }
 
 dependencies {
+    implementation 'com.github.florent37:singledateandtimepicker:2.0.6'
+    implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.google.firebase:firebase-firestore:17.0.4'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.google.firebase:firebase-messaging:17.1.0'
