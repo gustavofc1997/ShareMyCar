@@ -4,6 +4,8 @@ import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.EditText
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
@@ -17,7 +19,16 @@ import org.jetbrains.anko.toast
 import java.util.*
 
 
-class CreatePostActivity : AppCompatActivity(), OnCompleteListener<QuerySnapshot> {
+class CreatePostActivity : AppCompatActivity(), TextWatcher, OnCompleteListener<QuerySnapshot> {
+    override fun afterTextChanged(p0: Editable?) {
+        txt_price.setText("$" + txt_price.text.toString())
+    }
+
+    override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+    }
+
+    override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+    }
 
     var mCitiesList = ArrayList<City>()
     var mDestinationId: String = ""
@@ -92,15 +103,15 @@ class CreatePostActivity : AppCompatActivity(), OnCompleteListener<QuerySnapshot
     }
 
 
-    fun loadDefaultHourAndDate(){
+    private fun loadDefaultHourAndDate() {
 
         val c = Calendar.getInstance()
         lab_hour.text = lab_hour.context.getString(R.string.hour_concat, c.get(Calendar.HOUR_OF_DAY).toString(), c.get(Calendar.MINUTE).toString())
-        lab_date.text = lab_date.context.getString(R.string.date_concat, c.get(Calendar.DAY_OF_MONTH).toString(), ( c.get(Calendar.MONTH) + 1).toString(), c.get(Calendar.YEAR).toString())
+        lab_date.text = lab_date.context.getString(R.string.date_concat, c.get(Calendar.DAY_OF_MONTH).toString(), (c.get(Calendar.MONTH) + 1).toString(), c.get(Calendar.YEAR).toString())
     }
 
-    fun initViews() {
-
+    private fun initViews() {
+        txt_price.addTextChangedListener(this)
         panel_date.setOnClickListener {
             val c = Calendar.getInstance()
             val datePickerDialog = DatePickerDialog(this,
