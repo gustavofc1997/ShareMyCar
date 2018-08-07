@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center|top"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -19,23 +20,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/mgs_about_trip"
-            android:textSize="@dimen/size_big_text"
             android:textColor="@android:color/black"
+            android:textSize="@dimen/size_big_text"
             app:fontFamily="@font/ubuntu" />
 
         <EditText
-            android:layout_marginTop="@dimen/padding_medium"
             android:id="@+id/txt_origin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_medium"
             android:clickable="false"
-            android:drawableLeft="@drawable/ic_add_location_black"
             android:drawableStart="@drawable/ic_add_location_black"
+            android:drawableLeft="@drawable/ic_add_location_black"
             android:focusable="false"
-            android:textColor="@android:color/black"
-
             android:hint="@string/title_choose_from"
+
             android:inputType="text"
+            android:textColor="@android:color/black"
             android:textSize="@dimen/size_normal_text"
             app:fontFamily="@font/ubuntu_light" />
 
@@ -60,11 +61,11 @@
             android:layout_marginTop="@dimen/padding_medium">
 
             <TextView
-                android:textColor="@android:color/black"
-
                 android:layout_width="wrap_content"
+
                 android:layout_height="wrap_content"
                 android:text="@string/lab_seats_available"
+                android:textColor="@android:color/black"
                 android:textSize="@dimen/size_normal_text"
                 app:fontFamily="@font/ubuntu_light" />
 
@@ -73,8 +74,8 @@
                 android:id="@+id/quantity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/padding_normal"
                 android:layout_marginStart="@dimen/padding_normal"
+                android:layout_marginLeft="@dimen/padding_normal"
                 app:qv_maxQuantity="10"
                 app:qv_quantityTextColor="@android:color/black" />
 
@@ -95,10 +96,10 @@
 
         <TextView
             android:layout_width="0dp"
-            android:textColor="@android:color/black"
             android:layout_height="wrap_content"
             android:layout_weight="0.65"
             android:text="@string/lab_select_date"
+            android:textColor="@android:color/black"
             android:textSize="@dimen/size_normal_text"
             app:fontFamily="@font/ubuntu_light" />
 
@@ -128,8 +129,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="0.65"
             android:text="@string/lab_select_hour"
-            android:textSize="@dimen/size_normal_text"
             android:textColor="@android:color/black"
+            android:textSize="@dimen/size_normal_text"
             app:fontFamily="@font/ubuntu_light" />
 
         <TextView
@@ -143,32 +144,44 @@
             app:fontFamily="@font/ubuntu_light" />
     </LinearLayout>
 
-<LinearLayout
-    android:layout_marginTop="@dimen/padding_normal"
-    android:orientation="horizontal"
-    android:padding="@dimen/padding_medium"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/padding_medium">
+
+        <TextView
+            android:id="@+id/txt_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.65"
+            android:text="@string/hint_ticket_price"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/size_normal_text"
+            app:fontFamily="@font/ubuntu_light" />
+
+        <com.blackcat.currencyedittext.CurrencyEditText
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.35"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            app:decimal_digits="0" />
+
+
+    </LinearLayout>
+
     <TextView
-        android:id="@+id/txt_price"
-        android:layout_width="0dp"
-        android:textColor="@android:color/black"
-        android:layout_weight="0.65"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hint_ticket_price"
+        android:background="@drawable/bg_corner"
+        android:paddingStart="18dp"
+        android:paddingTop="6dp"
+        android:paddingEnd="18dp"
+        android:paddingBottom="6dp"
         android:textSize="@dimen/size_normal_text"
-        app:fontFamily="@font/ubuntu_light" />
-
-    <com.blackcat.currencyedittext.CurrencyEditText
-        android:gravity="center"
-        android:textColor="@android:color/black"
-        android:layout_width="0dp"
-        android:layout_weight="0.35"
-        android:layout_height="wrap_content"
-        app:decimal_digits="0" />
-
-
-
-</LinearLayout>
+        android:text="Compartir"
+        android:textColor="@android:color/white"
+        app:fontFamily="@font/ubuntu" />
 
 </LinearLayout>

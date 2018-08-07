@@ -5,6 +5,7 @@
     <string name="date_concat">%1$s/%2$s/%3$s</string>
     <string name="hour_concat">%1$s:%2$s</string>
     <string name="lab_select_date">Selecciona la fecha del viaje</string>
+    <string name="title_create">Crear viaje</string>
     <string name="lab_select_hour">Selecciona la hora del viaje</string>
     <string name="lab_seats_available">Cupos disponibles</string>
     <string name="mgs_about_trip">Cuentanos detalles de tu viaje</string>
