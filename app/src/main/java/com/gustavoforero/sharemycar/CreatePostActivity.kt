@@ -16,6 +16,8 @@ import com.gustavoforero.sharemycar.util.FirestoreConstants
 import kotlinx.android.synthetic.main.activity_create_post.*
 import org.jetbrains.anko.selector
 import org.jetbrains.anko.toast
+import java.text.ParseException
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -103,10 +105,21 @@ class CreatePostActivity : AppCompatActivity(), TextWatcher, OnCompleteListener<
     }
 
 
-    private fun loadDefaultHourAndDate() {
+    fun setHour(time:String){
+        try {
+            val sdf = SimpleDateFormat("H:mm")
+            val dateObj = sdf.parse(time)
+            lab_hour.text=SimpleDateFormat("K:mm").format(dateObj)
+        } catch (e: ParseException) {
+            e.printStackTrace()
+        }
 
+    }
+
+    private fun loadDefaultHourAndDate() {
         val c = Calendar.getInstance()
-        lab_hour.text = lab_hour.context.getString(R.string.hour_concat, c.get(Calendar.HOUR_OF_DAY).toString(), c.get(Calendar.MINUTE).toString())
+        val hour=getString(R.string.hour_concat, c.get(Calendar.HOUR_OF_DAY).toString(), c.get(Calendar.MINUTE).toString())
+        setHour(hour).toString()
         lab_date.text = lab_date.context.getString(R.string.date_concat, c.get(Calendar.DAY_OF_MONTH).toString(), (c.get(Calendar.MONTH) + 1).toString(), c.get(Calendar.YEAR).toString())
     }
 
@@ -125,7 +138,7 @@ class CreatePostActivity : AppCompatActivity(), TextWatcher, OnCompleteListener<
         panel_hour.setOnClickListener {
             val c = Calendar.getInstance()
             val timePicker = TimePickerDialog(this, TimePickerDialog.OnTimeSetListener { view, hour, minute ->
-                lab_hour.text = lab_hour.context.getString(R.string.hour_concat, hour.toString(), minute.toString())
+                setHour(getString(R.string.hour_concat, hour.toString(), minute.toString()))
             }, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), false)
             timePicker.show()
         }

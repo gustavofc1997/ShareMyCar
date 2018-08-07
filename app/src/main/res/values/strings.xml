@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ShareMyCar</string>
+    <string name="app_name">Viaco</string>
     <string name="remove">-</string>
     <string name="add">+</string>
     <string name="date_concat">%1$s/%2$s/%3$s</string>
@@ -7,6 +7,7 @@
     <string name="lab_select_date">Selecciona la fecha del viaje</string>
     <string name="lab_select_hour">Selecciona la hora del viaje</string>
     <string name="lab_seats_available">Cupos disponibles</string>
+    <string name="mgs_about_trip">Cuentanos detalles de tu viaje</string>
     <string name="title_choose_from">Selecciona un origen</string>
     <string name="title_choose_to">Selecciona un destino</string>
     <string name="hint_ticket_price">Escribe el precio del pasaje</string>

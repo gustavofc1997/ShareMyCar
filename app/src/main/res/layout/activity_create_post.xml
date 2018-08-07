@@ -15,7 +15,16 @@
         android:padding="@dimen/padding_medium">
 
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mgs_about_trip"
+            android:textSize="@dimen/size_big_text"
+            android:textColor="@android:color/black"
+            app:fontFamily="@font/ubuntu" />
+
         <EditText
+            android:layout_marginTop="@dimen/padding_medium"
             android:id="@+id/txt_origin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
