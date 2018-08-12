@@ -3,7 +3,9 @@
 
     <dimen name="padding_medium">12dp</dimen>
     <dimen name="padding_normal">10dp</dimen>
+    <dimen name="padding_minor">6dp</dimen>
     <dimen name="size_normal_text">17sp</dimen>
+    <dimen name="size_medium_text">20sp</dimen>
     <dimen name="size_big_text">22sp</dimen>
 
 </resources>

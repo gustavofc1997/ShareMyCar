@@ -4,8 +4,6 @@ import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
@@ -18,9 +16,7 @@ import com.gustavoforero.sharemycar.domain.Trip
 import com.gustavoforero.sharemycar.util.FirestoreConstants
 import com.gustavoforero.sharemycar.util.FirestoreConstants.Companion.KEY_COLLECTION_TRIPS
 import kotlinx.android.synthetic.main.activity_create_post.*
-import org.jetbrains.anko.progressDialog
-import org.jetbrains.anko.selector
-import org.jetbrains.anko.toast
+import org.jetbrains.anko.*
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
@@ -126,8 +122,10 @@ class CreatePostActivity : AppCompatActivity(), OnCompleteListener<QuerySnapshot
         dialog.show()
         mFirebaseDb.collection(KEY_COLLECTION_TRIPS).add(trip)
                 .addOnSuccessListener { documentReference ->
-                    println(documentReference)
                     dialog.dismiss()
+                    alert("Hemos compartido tu viaje ahora está visible para quienes estén en busca!!", "Viaje publicado") {
+                        yesButton { finish() }
+                    }.show()
                 }.addOnFailureListener { e ->
                     println(e)
                     dialog.dismiss()
@@ -145,7 +143,7 @@ class CreatePostActivity : AppCompatActivity(), OnCompleteListener<QuerySnapshot
         trip.cupos = quantity.quantity
         trip.name = txt_name.text.toString()
         trip.phone = txt_phone.text.toString()
-        trip.precio=txt_price.text.toString()
+        trip.precio = txt_price.text.toString()
         return trip
     }
 
@@ -199,7 +197,7 @@ class CreatePostActivity : AppCompatActivity(), OnCompleteListener<QuerySnapshot
     }
 
     fun onShareClick() {
-        val fieldsOK = validate(arrayOf(txt_origin,txt_destination, lab_date, lab_hour, txt_price,txt_name, txt_phone))
+        val fieldsOK = validate(arrayOf(txt_origin, txt_destination, lab_date, lab_hour, txt_price, txt_name, txt_phone))
 
         if (fieldsOK) {
 

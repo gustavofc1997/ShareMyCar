@@ -9,6 +9,8 @@
     <string name="lab_select_hour">Selecciona la hora del viaje</string>
     <string name="lab_seats_available">Cupos disponibles</string>
     <string name="mgs_about_trip">Cuentanos detalles de tu viaje</string>
+    <string name="mgs_choose_city">Selecciona las ciudad desde la cual viajas</string>
+    <string name="mgs_help_main">Para empezar a usar la app debes seleccionar la ciudad desde la cual deseas viajar y verás los resultados</string>
     <string name="title_choose_from">Selecciona un origen</string>
     <string name="hint_name">Nombre de contacto</string>
     <string name="hint_number_phone">Número de contacto</string>
