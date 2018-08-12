@@ -10,6 +10,8 @@
     <string name="lab_seats_available">Cupos disponibles</string>
     <string name="mgs_about_trip">Cuentanos detalles de tu viaje</string>
     <string name="title_choose_from">Selecciona un origen</string>
+    <string name="hint_name">Nombre de contacto</string>
+    <string name="hint_number_phone">Número de contacto</string>
     <string name="title_choose_to">Selecciona un destino</string>
     <string name="hint_ticket_price">Escribe el precio del pasaje</string>
     <string name="msg_equals_cities">La ciudad de origen y de destino no pueden ser iguales</string>
