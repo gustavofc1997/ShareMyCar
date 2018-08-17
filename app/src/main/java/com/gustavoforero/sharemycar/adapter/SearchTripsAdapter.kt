@@ -38,11 +38,12 @@ class SearchTripsAdapter(val mContext: Context) : RecyclerView.Adapter<SearchTri
 
 
         fun loadItem(trip: Trip) {
-            itemView.lab_cities.text="${trip.origen} - ${trip.destino}"
+            itemView.lab_cities.text = "${trip.origen} - ${trip.destino}"
             itemView.lab_price.text = trip.precio
             itemView.lab_phone.text = trip.phone
             itemView.lab_contact.text = trip.name
-            itemView.lab_hour.text = trip.hora
+            itemView.lab_hour.text = itemView.lab_seats.context.getString(R.string.lab_departure, trip.hora)
+            itemView.lab_seats.text = itemView.lab_seats.context.getString(R.string.lab_seats, trip.cupos.toString())
             itemView.lab_date.text = com.gustavoforero.sharemycar.util.Util.getDate(trip.fecha)
         }
     }

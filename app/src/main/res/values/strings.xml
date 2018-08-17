@@ -7,6 +7,8 @@
     </string-array>
     <string name="add">+</string>
     <string name="date_concat">%1$s/%2$s/%3$s</string>
+    <string name="lab_seats">%1$s cupo(s)</string>
+    <string name="lab_departure">Salida %1$s</string>
     <string name="hour_concat">%1$s:%2$s</string>
     <string name="lab_select_date">Selecciona la fecha del viaje</string>
     <string name="title_create">Crear viaje</string>
