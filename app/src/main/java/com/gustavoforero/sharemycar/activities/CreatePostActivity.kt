@@ -1,4 +1,4 @@
-package com.gustavoforero.sharemycar
+package com.gustavoforero.sharemycar.activities
 
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
@@ -11,6 +11,7 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
+import com.gustavoforero.sharemycar.R
 import com.gustavoforero.sharemycar.domain.City
 import com.gustavoforero.sharemycar.domain.Trip
 import com.gustavoforero.sharemycar.util.FirestoreConstants
@@ -120,7 +121,7 @@ class CreatePostActivity : AppCompatActivity(), OnCompleteListener<QuerySnapshot
     fun savePost(trip: Trip) {
         val dialog = progressDialog(message = "Estamos publicando la información", title = "Creando viaje")
         dialog.show()
-        mFirebaseDb.collection(KEY_COLLECTION_TRIPS).add(trip)
+        mFirebaseDb.collection(KEY_COLLECTION_TRIPS).document(trip.origen.toString()).set(trip)
                 .addOnSuccessListener { documentReference ->
                     dialog.dismiss()
                     alert("Hemos compartido tu viaje ahora está visible para quienes estén en busca!!", "Viaje publicado") {

@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Viaco</string>
     <string name="remove">-</string>
+    <string-array name="tab_main">
+        <item>Buscar viaje</item>
+        <item>Tus viajes</item>
+    </string-array>
     <string name="add">+</string>
     <string name="date_concat">%1$s/%2$s/%3$s</string>
     <string name="hour_concat">%1$s:%2$s</string>
@@ -10,8 +14,9 @@
     <string name="lab_seats_available">Cupos disponibles</string>
     <string name="mgs_about_trip">Cuentanos detalles de tu viaje</string>
     <string name="mgs_choose_city">Selecciona las ciudad desde la cual viajas</string>
-    <string name="mgs_help_main">Para empezar a usar la app debes seleccionar la ciudad desde la cual deseas viajar y verás los resultados</string>
+    <string name="mgs_help_main">Para buscar un viaje debes seleccionar la ciudad desde la cual deseas viajar y verás los resultados</string>
     <string name="title_choose_from">Selecciona un origen</string>
+    <string name="title_choose_from_search">Selecciona la ciudad desde donde buscas el viaje</string>
     <string name="hint_name">Nombre de contacto</string>
     <string name="hint_number_phone">Número de contacto</string>
     <string name="title_choose_to">Selecciona un destino</string>

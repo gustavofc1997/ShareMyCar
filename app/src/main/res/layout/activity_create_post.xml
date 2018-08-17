@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center|top"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
 
     <LinearLayout
@@ -29,10 +29,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_medium"
-            android:clickable="false"
             android:drawableStart="@drawable/ic_add_location_black"
             android:drawableLeft="@drawable/ic_add_location_black"
             android:focusable="false"
+            android:clickable="false"
+
             android:hint="@string/title_choose_from"
 
             android:inputType="text"
