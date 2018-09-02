@@ -51,7 +51,6 @@ class SearchFragment : Fragment(), OnCompleteListener<QuerySnapshot> {
     }
 
     companion object {
-        const val PATH_TRIPS = "Trips"
 
         fun newInstance(): SearchFragment {
             return SearchFragment()

@@ -16,6 +16,7 @@ class Trip {
 
 
     var origen: String? = null
+    var email: String? = null
     var destino: String? = null
     var fecha: String? = null
     var hora: String? = null

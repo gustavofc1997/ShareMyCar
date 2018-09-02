@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.TextView
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
 import com.gustavoforero.sharemycar.R
@@ -136,7 +137,11 @@ class CreatePostActivity : AppCompatActivity(), OnCompleteListener<QuerySnapshot
 
 
     fun getTripData(): Trip {
+        val currentUser = FirebaseAuth.getInstance().currentUser
         val trip = Trip()
+        if (currentUser != null) {
+            trip.email = currentUser.email
+        }
         trip.origen = txt_origin.text.toString()
         trip.fecha = lab_date.text.toString()
         trip.hora = lab_hour.text.toString()

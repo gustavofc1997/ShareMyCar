@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Viaco</string>
+    <string name="facebook_app_id">438339356687645</string>
+    <string name="fb_login_protocol_scheme">fb438339356687645</string>
     <string name="remove">-</string>
     <string-array name="tab_main">
         <item>Buscar viaje</item>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorWhiteOverlay">#771942bf</color>
     <color name="colorPrimary">#2148C0</color>
     <color name="colorPrice">#dce6f4</color>
     <color name="colorPrimaryDark">#1942bf</color>
