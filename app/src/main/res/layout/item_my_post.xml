@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/padding_minor"
+    android:background="@android:color/transparent"
+    android:orientation="vertical">
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/padding_minor"
+        android:layout_marginTop="@dimen/margin_top_item"
+        android:layout_marginEnd="@dimen/padding_minor"
+        android:elevation="4dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/padding_normal">
+
+            <RelativeLayout
+                android:id="@+id/panel_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/lab_cities_my_trip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="La Dorada - Bogotá"
+                android:textSize="20sp"
+                app:fontFamily="@font/ubuntu" />
+
+            <TextView
+                android:id="@+id/lab_trip_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="28-09-18"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:fontFamily="@font/ubuntu" />
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/lab_finish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/panel_detail"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="22dp"
+                android:background="@drawable/bg_btn_cancel"
+                android:padding="4dp"
+                android:text="Finalizar publicación"
+                android:textColor="@android:color/holo_red_dark"
+                app:fontFamily="@font/ubuntu" />
+
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>

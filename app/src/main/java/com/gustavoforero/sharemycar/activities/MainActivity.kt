@@ -1,5 +1,6 @@
 package com.gustavoforero.sharemycar.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.gustavoforero.sharemycar.R
@@ -22,6 +23,11 @@ class MainActivity : AppCompatActivity() {
         adapter.addFragment(MyTripsFragment.newInstance())
         pager.adapter = adapter
         tab.setupWithViewPager(pager)
+        fab_create.setOnClickListener {
+            val intent=Intent(this, CreatePostActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
 

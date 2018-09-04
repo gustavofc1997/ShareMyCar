@@ -11,9 +11,7 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/padding_minor"
         android:layout_marginTop="@dimen/margin_top_item"
-        android:layout_marginEnd="@dimen/padding_minor"
         android:elevation="4dp"
         app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="4dp">

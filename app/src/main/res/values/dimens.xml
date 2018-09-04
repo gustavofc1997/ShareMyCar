@@ -2,6 +2,7 @@
 <resources>
 
     <dimen name="padding_big">22dp</dimen>
+    <dimen name="offset">42dp</dimen>
     <dimen name="margin_top_item">18dp</dimen>
     <dimen name="padding_medium">12dp</dimen>
     <dimen name="padding_normal">10dp</dimen>

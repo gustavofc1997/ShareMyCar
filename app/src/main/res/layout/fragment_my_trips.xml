@@ -4,44 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/light_gray"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="@dimen/padding_medium">
 
 
     <LinearLayout
-        android:padding="@dimen/padding_medium"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
 
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/padding_minor"
-            android:hint="@string/title_choose_from"
-            app:hintAnimationEnabled="true">
-
-            <EditText
-                android:id="@+id/txt_city_from"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="false"
-                android:focusable="false"
-                android:inputType="text"
-                android:text="Todos"
-                android:textColor="@android:color/black"
-                android:textSize="@dimen/size_normal_text"
-                app:fontFamily="@font/ubuntu" />
-
-
-        </android.support.design.widget.TextInputLayout>
-
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_trips"
-            android:paddingBottom="42dp"
-            android:clipToPadding="false"
-            android:padding="@dimen/padding_medium"
+            android:id="@+id/rv_my_trips"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -58,9 +33,20 @@
                 android:src="@drawable/ic_no_result" />
         </LinearLayout>
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/panel_trips_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:visibility="gone">
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_no_result" />
+    </LinearLayout>
     <RelativeLayout
-        android:id="@+id/panel_progress"
+        android:id="@+id/panel_progress_trips"
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -68,7 +54,7 @@
 
         <com.airbnb.lottie.LottieAnimationView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             app:lottie_autoPlay="true"
             app:lottie_fileName="plane.json"

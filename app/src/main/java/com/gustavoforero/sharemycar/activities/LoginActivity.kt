@@ -25,7 +25,7 @@ class LoginActivity : AppCompatActivity(), FacebookCallback<LoginResult>, OnComp
     override fun onComplete(task: Task<AuthResult>) {
         if (task.isSuccessful) {
             // Sign in success, update UI with the signed-in user's information
-            Intent(applicationContext, MainActivity::class.java)
+            val intent=Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
         } else {
