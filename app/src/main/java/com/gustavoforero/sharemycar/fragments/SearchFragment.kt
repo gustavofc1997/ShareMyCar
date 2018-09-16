@@ -20,11 +20,63 @@ import kotlinx.android.synthetic.main.fragmet_search.*
 import org.jetbrains.anko.support.v4.selector
 import org.jetbrains.anko.support.v4.toast
 import com.gustavoforero.sharemycar.util.BottomOffsetDecoration
+import android.content.pm.PackageManager
+import android.widget.Toast
+import android.content.Intent
+import android.telephony.PhoneNumberUtils
+import android.content.ComponentName
+import android.net.Uri
 
 
+class SearchFragment : Fragment(), OnCompleteListener<QuerySnapshot> ,SearchTripsAdapter.OnPhonePressed{
+    override fun onPhonePressedListener(trip: Trip) {
+        val countries = listOf("Llamar", "Enviar mensaje en Whatsapp")
+        selector("Selecciona una acción", countries) { _, i ->
+            if (countries[i].equals("Llamar")){
+                val intent = Intent(Intent.ACTION_DIAL)
+                // Send phone number to intent as data
+                intent.data = Uri.parse("tel:${trip.phone}")
+                // Start the dialer app activity with number
+                startActivity(intent)
+            }else{
+                openWhatsApp(trip.phone)
+            }
 
+        }
+    }
 
-class SearchFragment : Fragment(), OnCompleteListener<QuerySnapshot> {
+    private fun openWhatsApp(num:String?) {
+        val isWhatsappInstalled = whatsappInstalledOrNot("com.whatsapp")
+        if (isWhatsappInstalled) {
+
+            val sendIntent = Intent("android.intent.action.MAIN")
+            sendIntent.component = ComponentName("com.whatsapp", "com.whatsapp.Conversation")
+            sendIntent.putExtra("jid", PhoneNumberUtils.stripSeparators("57$num") + "@s.whatsapp.net")//phone number without "+" prefix
+
+            startActivity(sendIntent)
+        } else {
+            val uri = Uri.parse("market://details?id=com.whatsapp")
+            val goToMarket = Intent(Intent.ACTION_VIEW, uri)
+            toast("WhatsApp not Installed")
+            startActivity(goToMarket)
+        }
+    }
+
+    private fun whatsappInstalledOrNot(uri: String): Boolean {
+        var app_installed = false
+
+        activity?.run {
+            val pm =packageManager
+            try {
+                pm.getPackageInfo(uri, PackageManager.GET_ACTIVITIES)
+                app_installed = true
+            } catch (e: PackageManager.NameNotFoundException) {
+                app_installed = false
+            }
+
+        }
+        return app_installed
+    }
 
 
     override fun onComplete(task: Task<QuerySnapshot>) {
@@ -61,10 +113,11 @@ class SearchFragment : Fragment(), OnCompleteListener<QuerySnapshot> {
     var citySelected = "All"
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mFirebaseDb = FirebaseFirestore.getInstance()
-        adapter = SearchTripsAdapter(this.requireContext())
+        adapter = SearchTripsAdapter(this.requireContext(),this)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

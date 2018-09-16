@@ -13,17 +13,14 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
 import com.gustavoforero.sharemycar.R
 import com.gustavoforero.sharemycar.adapter.MyTripsAdapter
-import com.gustavoforero.sharemycar.adapter.SearchTripsAdapter
-import com.gustavoforero.sharemycar.domain.City
 import com.gustavoforero.sharemycar.domain.Trip
 import com.gustavoforero.sharemycar.util.FirestoreConstants
 import kotlinx.android.synthetic.main.fragment_my_trips.*
-import kotlinx.android.synthetic.main.fragmet_search.*
 import org.jetbrains.anko.support.v4.toast
 
-class MyTripsFragment : Fragment(),MyTripsAdapter.DeleteTrip, OnCompleteListener<QuerySnapshot> {
+class MyTripsFragment : Fragment(), MyTripsAdapter.DeleteTrip, OnCompleteListener<QuerySnapshot> {
     override fun onComplete(task: Task<QuerySnapshot>) {
-        panel_progress_trips.visibility=View.GONE
+        panel_progress_trips.visibility = View.GONE
         if (task.isSuccessful) {
             if (task.result.isEmpty) {
                 rv_my_trips.visibility = View.GONE
@@ -41,15 +38,17 @@ class MyTripsFragment : Fragment(),MyTripsAdapter.DeleteTrip, OnCompleteListener
                             document.data["phone"].toString(),
                             document.data["name"].toString()))
                 }
+                rv_my_trips.visibility = View.VISIBLE
+                panel_trips_empty.visibility = View.GONE
                 adapter.setItems(mTripList)
             }
         } else
             toast("Ups ha ocurrido un problema :(")
     }
 
-    override fun onDeleteTrip(toDelete :String) {
+    override fun onDeleteTrip(toDelete: String) {
 
-      val writeResult = mFirebaseDb.collection("Trips").document(toDelete).delete()
+        val writeResult = mFirebaseDb.collection("Trips").document(toDelete).delete()
         queryTrips()
     }
 
@@ -68,6 +67,7 @@ class MyTripsFragment : Fragment(),MyTripsAdapter.DeleteTrip, OnCompleteListener
         super.onResume()
         queryTrips()
     }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_my_trips, container, false)
 
@@ -82,7 +82,7 @@ class MyTripsFragment : Fragment(),MyTripsAdapter.DeleteTrip, OnCompleteListener
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         mFirebaseDb = FirebaseFirestore.getInstance()
-        adapter = MyTripsAdapter(this.requireContext(),this)
+        adapter = MyTripsAdapter(this.requireContext(), this)
     }
 
     fun initViews() {
@@ -92,8 +92,8 @@ class MyTripsFragment : Fragment(),MyTripsAdapter.DeleteTrip, OnCompleteListener
 
     }
 
-    fun queryTrips(){
-        panel_progress_trips.visibility=View.VISIBLE
+    fun queryTrips() {
+        panel_progress_trips.visibility = View.VISIBLE
 
         val currentUser = FirebaseAuth.getInstance().currentUser
         val trips = mFirebaseDb.collection(FirestoreConstants.KEY_COLLECTION_TRIPS)

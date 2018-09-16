@@ -8,8 +8,13 @@ import android.view.ViewGroup
 import com.gustavoforero.sharemycar.R
 import com.gustavoforero.sharemycar.domain.Trip
 import kotlinx.android.synthetic.main.item_post.view.*
+import android.text.style.UnderlineSpan
+import android.text.SpannableString
 
-class SearchTripsAdapter(val mContext: Context) : RecyclerView.Adapter<SearchTripsAdapter.ItemViewHolder>() {
+
+
+
+class SearchTripsAdapter(val mContext: Context, var listener: OnPhonePressed?) : RecyclerView.Adapter<SearchTripsAdapter.ItemViewHolder>() {
 
 
     var trips: ArrayList<Trip> = ArrayList()
@@ -30,21 +35,35 @@ class SearchTripsAdapter(val mContext: Context) : RecyclerView.Adapter<SearchTri
     }
 
     override fun onBindViewHolder(p0: ItemViewHolder, p1: Int) {
-        p0.loadItem(trips.get(p1))
+
+        p0.loadItem(trips.get(p1), listener)
     }
 
 
     class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
 
-        fun loadItem(trip: Trip) {
+        fun loadItem(trip: Trip, listener: OnPhonePressed?) {
             itemView.lab_cities.text = "${trip.origen} - ${trip.destino}"
             itemView.lab_price.text = trip.precio
-            itemView.lab_phone.text = trip.phone
+            val content = SpannableString(trip.phone)
+            content.setSpan(UnderlineSpan(), 0, content.length, 0)
+            itemView.lab_phone.text = content
             itemView.lab_contact.text = trip.name
             itemView.lab_hour.text = itemView.lab_seats.context.getString(R.string.lab_departure, trip.hora)
             itemView.lab_seats.text = itemView.lab_seats.context.getString(R.string.lab_seats, trip.cupos.toString())
             itemView.lab_date.text = com.gustavoforero.sharemycar.util.Util.getDate(trip.fecha)
+            itemView.lab_phone.setOnClickListener {
+                listener?.run {
+                    onPhonePressedListener(trip)
+                }
+            }
         }
+    }
+
+
+    interface OnPhonePressed {
+
+        fun onPhonePressedListener(trip: Trip)
     }
 }

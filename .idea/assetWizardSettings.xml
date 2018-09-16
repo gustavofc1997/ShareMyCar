@@ -34,7 +34,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="jar:file:/D:/Downloads/android-studio-ide-181.4861037-windows/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/maps/ic_directions_car_black_24dp.xml" />
+                                                <entry key="url" value="jar:file:/D:/Downloads/android-studio-ide-182.4968538-windows/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/notification/ic_phone_forwarded_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -44,7 +44,7 @@
                                   </option>
                                   <option name="values">
                                     <map>
-                                      <entry key="outputName" value="ic_car" />
+                                      <entry key="outputName" value="ic_phone" />
                                       <entry key="theme" value="CUSTOM" />
                                       <entry key="themeColor" value="000000" />
                                     </map>

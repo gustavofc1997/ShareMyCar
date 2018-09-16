@@ -82,6 +82,7 @@
 
                 <TextView
                     android:id="@+id/lab_phone"
+                    android:text="3013588304"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@android:color/black"
